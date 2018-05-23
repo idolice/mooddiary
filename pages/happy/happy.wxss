@@ -1,0 +1,39 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.mood {
+  width: 400rpx;
+  height: 400rpx;
+  margin: 15rpx;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.recordIcon {
+  height: 80rpx;
+  width: 80rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.reason {
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 2rpx 3rpx 4rpx rgba(0, 0, 0, .5);
+}

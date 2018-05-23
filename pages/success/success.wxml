@@ -1,0 +1,16 @@
+<!--success.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <text class="success">Today Record Successfully</text>
+  </view>
+  <view class='tabdown'>
+    <button class="navButton" bindtap='navToIndex'>
+      <image class="tabPic" src='/images/smallpanda.png'></image>
+      <text class='tabText'>back</text>
+    </button>
+    <button class="navButton" bindtap='navToCalendar'>
+      <image class="tabPic" src='/images/ship.png'></image>
+      <text class='tabText'>calendar</text>
+    </button>
+  </view>
+</view>

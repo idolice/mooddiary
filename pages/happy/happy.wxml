@@ -1,0 +1,11 @@
+<!--happy.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <text class="">XXXXXX</text>
+    <image class="mood" src="/images/emoji-6.png" background-size="cover"></image>
+    <view class='record'>
+    <input class="reason" type="text" placeholder='XXXXXX' bindinput='getReason'></input>
+    <image class="recordIcon" bindtap='sendRecord' src='/images/panda.png'></image>
+    </view>
+  </view>
+</view>

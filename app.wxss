@@ -1,0 +1,12 @@
+/**app.wxss**/
+ .container {
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box; */
+  background-image: url('http://pic1.win4000.com/mobile/2018-03-19/5aaf1fce5d20e.jpg');
+}  
+

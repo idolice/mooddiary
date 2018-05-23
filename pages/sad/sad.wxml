@@ -1,0 +1,9 @@
+<!--sad.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <text class="">XXXXXX</text>
+    <image class="mood" src="/images/emoji-14.png" background-size="cover"></image>
+    <input class="reason" placeholder='XXXXXX' bindinput='getReason'></input>
+    <button class="record" bindtap="sendRecord">record</button>
+  </view>
+</view>

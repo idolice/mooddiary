@@ -1,0 +1,45 @@
+/**success.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.mood {
+  width: 400rpx;
+  height: 400rpx;
+  margin: 15rpx;
+}
+
+.success {
+  font-family: STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑";
+}
+
+.tabPic {
+  height: 100rpx;
+  width: 100rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navButton {
+  display: inline-block;
+  width: 50%;
+}
+.tabdown {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+.tabText {
+  display: inline-block;
+  font-family: STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑";
+  vertical-align: middle;
+  color: #666666;
+}

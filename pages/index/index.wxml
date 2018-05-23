@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+<text class="mainPageTitle">xxxxx</text>
+  <view class="userinfo">
+    <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button> -->
+    <!-- <block wx:else>
+       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image> 
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block> -->
+<!-- <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button> -->
+    <image bindtap="exciting" class="mood" src="/images/emoji-1.png" background-size="cover"></image> 
+    <image bindtap="sad" class="mood" src="/images/emoji-2.png" background-size="cover"></image> 
+    <image bindtap="cry" class="mood" src="/images/emoji-3.png" background-size="cover"></image> 
+    <image bindtap="inlove" class="mood" src="/images/emoji-4.png" background-size="cover"></image> 
+    <image bindtap="angry" class="mood" src="/images/emoji-5.png" background-size="cover"></image> 
+    <image bindtap="happy" class="mood" src="/images/emoji-6.png" background-size="cover"></image>
+    <image bindtap="normal" class="mood" src="/images/emoji-7.png" background-size="cover"></image>
+      <image bindtap="mengbi" class="mood" src="/images/emoji-8.png" background-size="cover"></image>
+  </view>
+</view>
