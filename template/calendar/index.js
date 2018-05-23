@@ -204,10 +204,30 @@ const conf = {
     }
     conf.calculateDays.call(this, newYear, newMonth);
     conf.calculateEmptyGrids.call(this, newYear, newMonth);
+    var that = this
+    var url = 'http://localhost:8080/mood/'+newMonth+'/' + this.data.calendar.openId
+    console.log(url)
+    var newList = [];
+    wx.request({
+      url: url,
+      method: 'get',
+      success: function (res) {
+        console.log(res.data)
+        var list = res.data;
+        for (var i = 0; i < list.length; i++) {
+          list[i].moodTag = "/images/emoji-" + list[i].moodTag + ".png";
+        }
+        newList = list;
+        that.setData({
+          'calendar.moodList': newList
+        })
+      }
+    }) 
     this.setData({
       'calendar.curYear': newYear,
-      'calendar.curMonth': newMonth,
+      'calendar.curMonth': newMonth
     });
+    console.log(this.data.calendar)
   },
   /**
    * 选择下一月
@@ -223,10 +243,30 @@ const conf = {
     }
     conf.calculateDays.call(this, newYear, newMonth);
     conf.calculateEmptyGrids.call(this, newYear, newMonth);
+    var that = this
+    var url = 'http://localhost:8080/mood/' + newMonth + '/' +            this.data.calendar.openId
+    console.log(url)
+    var newList = [];
+    wx.request({
+      url: url,
+      method: 'get',
+      success: function (res) {
+        console.log(res.data)
+        var list = res.data;
+        for (var i = 0; i < list.length; i++) {
+          list[i].moodTag = "/images/emoji-" + list[i].moodTag + ".png";
+        }
+        newList = list;
+        that.setData({
+          'calendar.moodList': newList
+        })
+      }
+    }) 
     this.setData({
       'calendar.curYear': newYear,
-      'calendar.curMonth': newMonth
+      'calendar.curMonth': newMonth,
     });
+    console.log(this.data.calendar)
   
   },
   /**

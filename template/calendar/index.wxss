@@ -2,6 +2,11 @@
 .box {
 	display: flex;
 }
+.calendarIcon {
+  width: 60rpx;
+  height: 60rpx;
+  display: inline-block;
+}
 
 .box-lr {
 	flex-direction: row;

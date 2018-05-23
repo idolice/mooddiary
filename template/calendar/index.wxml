@@ -27,8 +27,8 @@
           data-idx="{{index}}"
           bindtap="tapDayItem">
 					  <view class="day border-radius {{item.choosed ? 'day-choosed-color pink-bg' : ''}} {{ item.disable ? 'disable-day-color disable-day-circle' : '' }} box box-align-center box-pack-center">{{item.day}}</view>
-            <view class='box box-align-center' wx:for="{{moodList}}" wx:for-item="mood" wx:key="{{index}}" wx:if="{{item.day == mood.index}}">
-                {{mood.moodTag}}
+            <view wx:for="{{moodList}}" wx:for-item="mood" wx:key="{{index}}" wx:if="{{item.day == mood.index}}">
+                <image class='calendarIcon' src='{{mood.moodTag}}'></image>
             </view>
 				</view>
 				<view class="grid disable-day-color box box-align-center box-pack-center"

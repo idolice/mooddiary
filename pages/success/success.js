@@ -22,7 +22,9 @@ Page({
   },
   navToCalendar: function(){
     var that = this
-    var url = 'http://localhost:8080/mood/month/' + app.globalData.openId
+    var date = new Date();
+    var month = date.getMonth()+1;
+    var url = 'http://localhost:8080/mood/'+month+'/' + app.globalData.openId
     wx.request({
       url: url,
       method: 'get',

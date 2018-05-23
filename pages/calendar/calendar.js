@@ -8,6 +8,7 @@ const conf = {
   },
   onLoad: function() {  
     this.data.calendar.moodList = app.globalData.moodList
+    this.data.calendar.openId = app.globalData.openId
     console.log(this.data.calendar)
   },
   onShow: function() {
