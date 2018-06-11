@@ -2,5 +2,15 @@
 
 <view class="calendar-wrap">
    <template is="calendar" data="{{...calendar}}" />
+    <view class='tabdown'>
+       <button class="navButton" bindtap='navToIndex'>
+      <image class="tabPic" src='/images/smallpanda.png'></image>
+      <text class='tabText'>back</text>
+    </button>
+    <button class="navButton" bindtap='navToReport'>
+      <image class="tabPic" src='/images/ship.png'></image>
+      <text class='tabText'>generate report</text>
+    </button>
+   </view>
 </view>
   

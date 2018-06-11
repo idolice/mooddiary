@@ -6,6 +6,14 @@ const conf = {
       
     }
   },
+  navToIndex: function() {
+    wx.navigateTo({
+      url: '../index/index',
+    })
+  },
+  navToReport: function() {
+    
+  },
   onLoad: function() {  
     this.data.calendar.moodList = app.globalData.moodList
     this.data.calendar.openId = app.globalData.openId

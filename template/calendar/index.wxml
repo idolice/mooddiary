@@ -20,7 +20,7 @@
           data-idx="{{index}}">
             <view class="day box box-align-center box-pack-center">{{item}}</view>
         </view>
-				<view class="grid normal-day-color box box-align-center box-pack-center"
+				<view class="grid alignTwoItem normal-day-color box box-align-center box-pack-center"
           wx:for="{{days}}"
           wx:key="{{index}}"
           data-disable="{{item.disable}}"
