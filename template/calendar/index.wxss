@@ -229,3 +229,78 @@
 .alignTwoItem {
   flex-direction: column;
 }
+.modal-mask {
+
+  width: 100%;
+
+  height: 100%;
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  background: #000;
+
+  opacity: 0.5;
+
+  overflow: hidden;
+
+  z-index: 9000;
+
+  color: #fff;
+
+}
+.modal-dialog {
+
+  width: 540rpx;
+
+  overflow: hidden;
+
+  position: fixed;
+
+  top: 50%;
+
+  left: 0;
+
+  z-index: 9999;
+
+  background: #f9f9f9;
+
+  margin: -180rpx 105rpx;
+
+  border-radius: 36rpx;
+
+}
+.modal-title {
+
+  padding-top: 5rpx;
+  padding-bottom: 50rpx;
+
+  font-size: 36rpx;
+
+  color: #030303;
+
+  text-align: center;
+  font-family: sans-serif;
+
+}
+.modal-image {
+  height: 100rpx;
+  width: 100rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.modal-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+.modal-body {
+  text-align: center;
+  font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  margin-bottom: 50rpx;
+  color: #808080;
+}

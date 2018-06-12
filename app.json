@@ -5,12 +5,13 @@
     "pages/happy/happy",
     "pages/sad/sad",
     "pages/success/success",
-    "pages/calendar/calendar"
+    "pages/calendar/calendar",
+    "pages/report/report"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "日记",
     "navigationBarTextStyle":"black"
   }
 }

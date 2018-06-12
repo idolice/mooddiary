@@ -85,6 +85,7 @@ const conf = {
   getThisMonthDays(year, month) {
     return new Date(year, month, 0).getDate();
   },
+
   /**
 	 * 计算指定月份第一天星期几
 	 * @param {number} year 年份
@@ -273,6 +274,12 @@ const conf = {
 	 * 选择具体日期
 	 * @param {!object} e  事件对象
 	 */
+  hideModal() {
+    console.log("working")
+    this.setData({
+      'calendar.showModal0': false
+    })
+  },
   tapDayItem(e) {
     const { idx, disable } = e.currentTarget.dataset;
     if (disable) return;
@@ -311,9 +318,30 @@ const conf = {
       };
       this.setData({
         'calendar.days': days,
-        'calendar.selectedDay': [ selected ],
+        'calendar.selectedDay': [ selected ]
       });
     }
+    var selectedDay0 = getSelectedDay();
+    var data = {
+      year:this.data.calendar.curYear,
+      month:this.data.calendar.curMonth,
+      day: selectedDay0[0].day
+    }
+    var that = this
+    wx.request({
+      url: 'http://localhost:8080/' + this.data.calendar.openId +'/record',
+      data: data,
+      method: 'get',
+      success: function (res) {
+        that.setData({
+          'calendar.showModal0': true,
+          'calendar.todayMessage': res.data
+        })
+      },
+      fail: function () {
+        //弹窗重新输入
+      }    
+    })
     if (afterTapDay && typeof afterTapDay === 'function') {
       if (!multi) {
         config.afterTapDay(selected);
@@ -321,6 +349,7 @@ const conf = {
         config.afterTapDay(selected, selectedDays);
       }
     };
+
   },
   /**
 	 * 跳转至今天
@@ -391,6 +420,7 @@ function bindFunctionToPage(functionArray) {
 /**
  * 获取已选择的日期
 */
+
 export const getSelectedDay = () => {
   const self = _getCurrentPage();
   return self.data.calendar.selectedDay;
@@ -412,6 +442,6 @@ export default (config = {}) => {
     'calendar.weeksCh': weeksCh
   });
   conf.jumpToToday.call(self);
-  const functionArray = [ 'tapDayItem', 'choosePrevMonth', 'chooseNextMonth', 'calendarTouchstart', 'calendarTouchmove' ];
+  const functionArray = ['tapDayItem', 'hideModal','choosePrevMonth', 'chooseNextMonth', 'calendarTouchstart', 'calendarTouchmove' ];
   bindFunctionToPage.call(self, functionArray);
 };

@@ -1,0 +1,29 @@
+@import '../../template/calendar/index.wxss';
+
+.calendar-wrap {
+	padding: 0 10rpx;
+	height: 100vh;
+}
+
+.navButton {
+  display: inline-block;
+  width: 49%;
+  font-size: 11px;
+}
+.tabdown {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+.tabText {
+  display: inline-block;
+  font-family: STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑";
+  vertical-align: middle;
+  color: #666666;
+}
+.tabPic {
+  height: 100rpx;
+  width: 100rpx;
+  display: inline-block;
+  vertical-align: middle;
+}

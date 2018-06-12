@@ -1,4 +1,4 @@
-import initCalendar, { getSelectedDay, jumpToToday, buildMoodList, hideModal} from '../../template/calendar/index';
+import initCalendar, { getSelectedDay, jumpToToday, buildMoodList } from '../../template/calendar/index';
 const app = getApp()
 const conf = {
   data: {
@@ -12,14 +12,11 @@ const conf = {
     })
   },
   navToReport: function() {
-    wx.navigateTo({
-      url: '../report/report',
-    })
+    
   },
   onLoad: function() {  
     this.data.calendar.moodList = app.globalData.moodList
     this.data.calendar.openId = app.globalData.openId
-    this.data.calendar.showModal0 = false
     console.log(this.data.calendar)
   },
   onShow: function() {
