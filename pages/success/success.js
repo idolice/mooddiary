@@ -24,7 +24,7 @@ Page({
     var that = this
     var date = new Date();
     var month = date.getMonth()+1;
-    var url = 'http://localhost:8080/mood/'+month+'/' + app.globalData.openId
+    var url = 'http://localhost:8080/mood/'+date.getFullYear()+'/'+month+'/' + app.globalData.openId
     wx.request({
       url: url,
       method: 'get',

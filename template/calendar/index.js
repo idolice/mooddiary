@@ -206,7 +206,7 @@ const conf = {
     conf.calculateDays.call(this, newYear, newMonth);
     conf.calculateEmptyGrids.call(this, newYear, newMonth);
     var that = this
-    var url = 'http://localhost:8080/mood/'+newMonth+'/' + this.data.calendar.openId
+    var url = 'http://localhost:8080/mood/'+newYear+'/'+newMonth+'/' + this.data.calendar.openId
     console.log(url)
     var newList = [];
     wx.request({
@@ -245,7 +245,7 @@ const conf = {
     conf.calculateDays.call(this, newYear, newMonth);
     conf.calculateEmptyGrids.call(this, newYear, newMonth);
     var that = this
-    var url = 'http://localhost:8080/mood/' + newMonth + '/' +            this.data.calendar.openId
+    var url = 'http://localhost:8080/mood/' + newYear+'/'+newMonth + '/' +            this.data.calendar.openId
     console.log(url)
     var newList = [];
     wx.request({
