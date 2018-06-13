@@ -5,8 +5,7 @@
     "pages/happy/happy",
     "pages/sad/sad",
     "pages/success/success",
-    "pages/calendar/calendar",
-    "pages/report/report"
+    "pages/calendar/calendar"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -57,6 +57,11 @@ App({
   globalData: {
     userInfo: null,
     openId: null,
-    sessionKey: null
+    sessionKey: null,
+    selectedDay:{
+      year: 0,
+      month: 0,
+      day: 0
+    }
   }
 })

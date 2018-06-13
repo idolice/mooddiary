@@ -1,5 +1,25 @@
 <import src="../../template/calendar/index.wxml"/>
-
+  <view class='modal-mask' bindtap="hideModal" wx:if="{{showModal0}}" catchtouchmove="preventTouchMove"></view>
+    <view class="modal-dialog" wx:if="{{showModal0}}">
+      <view class="modal-title">
+        <image class = "modal-image" src='/images/heart-7.png'></image>
+        <view class="modal-text">当日记录</view>
+      </view>
+      <view class='modal-body'>{{todayMessage}}</view>
+      <view class="modal-footer">
+      <view wx:if="{{selectedDayHasNoRecord}}" class="btn-cancel" bindtap="hideModal" data-status="cancel">算了</view>
+    <view wx:if="{{selectedDayHasNoRecord}}" class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+    </view>
+   
+    <view class='modal-mask' bindtap="hideReport" wx:if="{{showReport}}" catchtouchmove="preventTouchMove"></view>
+    <view class="modal-dialog" wx:if="{{showReport}}">
+      <view class="modal-title">
+        <image class = "modal-image" src='/images/heart-7.png'></image>
+        <view class="modal-text">当日记录</view>
+      </view>
+      <view class='modal-body'>daiding</view>
+    </view>
 <view class="calendar-wrap">
    <template is="calendar" data="{{...calendar}}" />
     <view class='tabdown'>

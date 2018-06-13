@@ -22,7 +22,10 @@ Page({
       userInfo: app.globalData.userInfo,
       sessionKey: app.globalData.sessionKey,
       mood: "happy",
-      reason: that.data.reason
+      reason: that.data.reason,
+      year: app.globalData.selectedDay.year,
+      month: app.globalData.selectedDay.month,
+      day: app.globalData.selectedDay.day
     }
     console.log(data)
     wx.request({
@@ -31,6 +34,7 @@ Page({
       method: 'post',
       header: { 'Content-Type': 'application/json' }, 
       success: function(res) {
+        console.log("jump to success")
         wx.navigateTo({
           url: '../success/success',
         })

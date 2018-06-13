@@ -1,12 +1,4 @@
 <template name="calendar">
-    <view class='modal-mask' bindtap="hideModal" wx:if="{{showModal0}}" catchtouchmove="preventTouchMove"></view>
-    <view class="modal-dialog" wx:if="{{showModal0}}">
-      <view class="modal-title">
-        <image class = "modal-image" src='/images/heart-7.png'></image>
-        <view class="modal-text">当日记录</view>
-      </view>
-      <view class='modal-body'>{{todayMessage}}</view>
-    </view>
 	<view class="flex box box-tb box-align-center">
 		<view class="calendar pink-color box box-tb">
 			<view class="top-handle fs28 box box-lr box-align-center box-pack-center">

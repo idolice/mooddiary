@@ -4,25 +4,54 @@ const conf = {
   data: {
     calendar: {
       
-    }
+    },
+    showModal0: false,
+    selectedDayHasRecord: false,
+    todayMessage: null,
+    selectedYear: 0,
+    selectedMonth: 0,
+    selectedDay: 0,
+    showReport: false
   },
+  hideModal() {
+    console.log("working")
+    this.setData({
+      'showModal0': false
+    })
+  },
+  hideReport() {
+    this.setData({
+      'showReport': false
+    })
+  },
+  onConfirm() {
+    var selectedDay = getSelectedDay();
+    wx.navigateTo({
+      url: '../index/index',
+    })
+  },
+  
   navToIndex: function() {
+    app.globalData.selectedDay = {
+      year: 0,
+      month: 0,
+      day: 0
+    }
     wx.navigateTo({
       url: '../index/index',
     })
   },
   navToReport: function() {
-    wx.navigateTo({
-      url: '../report/report',
+    this.setData({
+      showReport: true
     })
   },
   onLoad: function() {  
     this.data.calendar.moodList = app.globalData.moodList
-    this.data.calendar.openId = app.globalData.openId
-    this.data.calendar.showModal0 = false
     console.log(this.data.calendar)
   },
   onShow: function() {
+    var that = this    
     initCalendar({
 
       // multi: true, // 是否开启多选,
@@ -42,10 +71,34 @@ const conf = {
        * @param { object } currentSelect 当前点击的日期
        * @param { object } event 日期点击事件对象
        */
-      // onTapDay(currentSelect, event) {
-      //   console.log(currentSelect);
-      //   console.log(event);
-      // },
+      onTapDay(currentSelect, event) {
+        app.globalData.selectedDay = {
+          year: currentSelect.year,
+          month: currentSelect.month,
+          day: currentSelect.day
+        }
+        console.log(app.globalData.selectedDay)
+        var data = {
+          year: currentSelect.year,
+          month: currentSelect.month,
+          day: currentSelect.day
+        }
+        wx.request({
+          url: 'http://localhost:8080/' + app.globalData.openId + '/record',
+          data: data,
+          method: 'get',
+          success: function (res) {
+            that.setData({
+              'showModal0': true,
+              'selectedDayHasNoRecord': res.data.ifHasNoRecord,
+              'todayMessage': res.data.record
+            })
+          },
+          fail: function () {
+            //弹窗重新输入
+          }
+        })
+      },
     });
   },
   /**

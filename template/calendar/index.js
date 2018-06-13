@@ -274,12 +274,6 @@ const conf = {
 	 * 选择具体日期
 	 * @param {!object} e  事件对象
 	 */
-  hideModal() {
-    console.log("working")
-    this.setData({
-      'calendar.showModal0': false
-    })
-  },
   tapDayItem(e) {
     const { idx, disable } = e.currentTarget.dataset;
     if (disable) return;
@@ -321,27 +315,7 @@ const conf = {
         'calendar.selectedDay': [ selected ]
       });
     }
-    var selectedDay0 = getSelectedDay();
-    var data = {
-      year:this.data.calendar.curYear,
-      month:this.data.calendar.curMonth,
-      day: selectedDay0[0].day
-    }
-    var that = this
-    wx.request({
-      url: 'http://localhost:8080/' + this.data.calendar.openId +'/record',
-      data: data,
-      method: 'get',
-      success: function (res) {
-        that.setData({
-          'calendar.showModal0': true,
-          'calendar.todayMessage': res.data
-        })
-      },
-      fail: function () {
-        //弹窗重新输入
-      }    
-    })
+  
     if (afterTapDay && typeof afterTapDay === 'function') {
       if (!multi) {
         config.afterTapDay(selected);
@@ -442,6 +416,6 @@ export default (config = {}) => {
     'calendar.weeksCh': weeksCh
   });
   conf.jumpToToday.call(self);
-  const functionArray = ['tapDayItem', 'hideModal','choosePrevMonth', 'chooseNextMonth', 'calendarTouchstart', 'calendarTouchmove' ];
+  const functionArray = ['tapDayItem', 'choosePrevMonth', 'chooseNextMonth', 'calendarTouchstart', 'calendarTouchmove' ];
   bindFunctionToPage.call(self, functionArray);
 };

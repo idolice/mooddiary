@@ -6,7 +6,10 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    year: app.globalData.selectedDay.year,
+    month: app.globalData.selectedDay.month,
+    day: app.globalData.selectedDay.day
   },
   //事件处理函数
   happy: function() {
@@ -20,7 +23,31 @@ Page({
     })
   },
   onLoad: function () {
-    console.log(app.globalData.userInfo)    
+    console.log(app.globalData.selectedDay) 
+    this.setData({
+      year: app.globalData.selectedDay.year,
+      month: app.globalData.selectedDay.month,
+      day: app.globalData.selectedDay.day
+    })
+    if(this.data.year == 0 && this.data.month == 0 && this.data.day == 0){
+      console.log("working2")
+      var date = new Date();
+      console.log(date)
+      this.setData({
+        year: date.getFullYear(),
+        month: date.getMonth()+1,
+        day: date.getDay()
+      })
+    } else {
+      console.log("working1")
+      this.setData({
+        year: app.globalData.selectedDay.year,
+        month: app.globalData.selectedDay.month,
+        day: app.globalData.selectedDay.day
+      })
+    }
+    console.log(this.data)
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
