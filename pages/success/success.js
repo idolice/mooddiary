@@ -24,7 +24,7 @@ Page({
     var that = this
     var date = new Date();
     var month = date.getMonth()+1;
-    var url = 'http://localhost:8080/mood/'+date.getFullYear()+'/'+month+'/' + app.globalData.openId
+    var url = app.globalData.host + date.getFullYear()+'/'+month+'/' + app.globalData.openId
     wx.request({
       url: url,
       method: 'get',
@@ -35,11 +35,12 @@ Page({
           list[i].moodTag = "/images/emoji-"+list[i].moodTag+".png";
         }
         app.globalData.moodList = list;
+        wx.navigateTo({
+          url: '../calendar/calendar',
+        })
       }
     }) 
-    wx.navigateTo({
-      url: '../calendar/calendar',
-    })
+    
   },
   onLoad: function () {
     if (app.globalData.userInfo) {

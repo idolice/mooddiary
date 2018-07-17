@@ -203,10 +203,8 @@ const conf = {
       newYear = curYear - 1;
       newMonth = 12;
     }
-    conf.calculateDays.call(this, newYear, newMonth);
-    conf.calculateEmptyGrids.call(this, newYear, newMonth);
     var that = this
-    var url = 'http://localhost:8080/mood/'+newYear+'/'+newMonth+'/' + this.data.calendar.openId
+    var url = this.data.calendar.endpoint + newYear+'/'+newMonth+'/' + this.data.calendar.openId
     console.log(url)
     var newList = [];
     wx.request({
@@ -220,15 +218,14 @@ const conf = {
         }
         newList = list;
         that.setData({
-          'calendar.moodList': newList
+          'calendar.moodList': newList,
+          'calendar.curYear': newYear,
+          'calendar.curMonth': newMonth
         })
+        conf.calculateDays.call(that, newYear, newMonth);
+        conf.calculateEmptyGrids.call(that, newYear, newMonth);
       }
     }) 
-    this.setData({
-      'calendar.curYear': newYear,
-      'calendar.curMonth': newMonth
-    });
-    console.log(this.data.calendar)
   },
   /**
    * 选择下一月
@@ -242,11 +239,8 @@ const conf = {
       newYear = curYear + 1;
       newMonth = 1;
     }
-    conf.calculateDays.call(this, newYear, newMonth);
-    conf.calculateEmptyGrids.call(this, newYear, newMonth);
     var that = this
-    var url = 'http://localhost:8080/mood/' + newYear+'/'+newMonth + '/' +            this.data.calendar.openId
-    console.log(url)
+    var url = this.data.calendar.endpoint + newYear +'/'+newMonth + '/' +            this.data.calendar.openId
     var newList = [];
     wx.request({
       url: url,
@@ -259,16 +253,14 @@ const conf = {
         }
         newList = list;
         that.setData({
-          'calendar.moodList': newList
+          'calendar.moodList': newList,
+          'calendar.curYear': newYear,
+          'calendar.curMonth': newMonth
         })
+        conf.calculateDays.call(that, newYear, newMonth);
+        conf.calculateEmptyGrids.call(that, newYear, newMonth);
       }
     }) 
-    this.setData({
-      'calendar.curYear': newYear,
-      'calendar.curMonth': newMonth,
-    });
-    console.log(this.data.calendar)
-  
   },
   /**
 	 * 选择具体日期

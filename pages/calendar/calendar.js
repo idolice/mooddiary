@@ -12,6 +12,7 @@ const conf = {
     selectedMonth: 0,
     selectedDay: 0,
     showReport: false
+
   },
   hideModal() {
     console.log("working")
@@ -49,6 +50,7 @@ const conf = {
   onLoad: function() {  
     this.data.calendar.moodList = app.globalData.moodList
     this.data.calendar.openId = app.globalData.openId
+    this.data.calendar.endpoint = app.globalData.host
     console.log(this.data.calendar)
   },
   onShow: function() {
@@ -85,7 +87,7 @@ const conf = {
           day: currentSelect.day
         }
         wx.request({
-          url: 'http://localhost:8080/' + app.globalData.openId + '/record',
+          url: app.globalData.host + app.globalData.openId + '/record',
           data: data,
           method: 'get',
           success: function (res) {

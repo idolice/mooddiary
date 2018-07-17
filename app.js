@@ -18,7 +18,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
-          url: 'http://localhost:8080/openId',
+          url: that.globalData.host + 'openId',
           data: {
             jsCode: res.code
           },
@@ -55,6 +55,7 @@ App({
     })
   },
   globalData: {
+    host: 'http://localhost:8080/',
     userInfo: null,
     openId: null,
     sessionKey: null,

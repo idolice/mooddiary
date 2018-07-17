@@ -29,7 +29,7 @@ Page({
     }
     console.log(data)
     wx.request({
-      url: 'http://localhost:8080/userMood',
+      url: app.globalData.host + 'userMood',
       data: data,
       method: 'post',
       header: { 'Content-Type': 'application/json' }, 

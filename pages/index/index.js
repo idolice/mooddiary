@@ -24,22 +24,14 @@ Page({
   },
   onLoad: function () {
     console.log(app.globalData.selectedDay) 
-    this.setData({
-      year: app.globalData.selectedDay.year,
-      month: app.globalData.selectedDay.month,
-      day: app.globalData.selectedDay.day
-    })
     if(this.data.year == 0 && this.data.month == 0 && this.data.day == 0){
-      console.log("working2")
       var date = new Date();
-      console.log(date)
       this.setData({
         year: date.getFullYear(),
         month: date.getMonth()+1,
-        day: date.getDay()
+        day: date.getDate()
       })
     } else {
-      console.log("working1")
       this.setData({
         year: app.globalData.selectedDay.year,
         month: app.globalData.selectedDay.month,
